@@ -54,6 +54,8 @@
         .features {
             margin-top: 40px;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
         .feature {
@@ -61,14 +63,39 @@
             padding: 15px;
             border-radius: 10px;
             font-size: 0.9em;
+            min-width: 150px;
         }
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: left;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+        }
+        h2 { color: #e94560; }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8em;
+        }
+        footer a {
+            color: #ccc;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover { color: #e94560; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-q { font-weight: bold; color: #e94560; }
+        .faq-a { color: #ccc; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <h1>HostGta Free</h1>
         <p>Забудь о ручном продлении серверов навсегда.</p>
-        <a href="HostGtaFree.zip" class="download-btn">Скачать расширение (.zip)</a>
+        <a href="HostGtaFree.zip" class="download-btn">Установить расширение</a>
         
         <div class="features">
             <div class="feature">🚀 Авто-продление</div>
@@ -76,5 +103,31 @@
             <div class="feature">💎 Бесплатно</div>
         </div>
     </div>
+
+    <section id="docs">
+        <h2>📚 Документация</h2>
+        <p><b>Как установить на ПК:</b> Распакуйте ZIP, перейдите в chrome://extensions, включите режим разработчика и выберите папку.</p>
+        <p><b>Как установить на Мобилку:</b> Используйте браузер <b>Kiwi Browser</b> или <b>Yandex Browser</b>. В меню расширений выберите "(from .zip/.crx)" и укажите скачанный файл.</p>
+        <p><b>Важно:</b> После установки обязательно зайдите в свой кабинет на hostgta.ru, чтобы расширение подхватило сессию.</p>
+    </section>
+
+    <section id="faq">
+        <h2>❓ FAQ</h2>
+        <div class="faq-item">
+            <div class="faq-q">Это безопасно?</div>
+            <div class="faq-a">Да, расширение не хранит ваши пароли. Оно использует только текущую сессию браузера для отправки запроса на продление.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Нужно ли держать вкладку открытой?</div>
+            <div class="faq-a">Нет, расширение работает в фоновом режиме, пока запущен браузер.</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 HostGta Free Project</p>
+        <a href="#" onclick="alert('Политика конфиденциальности: Мы не собираем личные данные. Все данные хранятся локально в вашем браузере.')">Политика конфиденциальности</a>
+        <a href="#" onclick="alert('Условия использования: Расширение предоставляется как есть. Мы не несем ответственности за работу сторонних сервисов.')">Условия использования</a>
+        <a href="https://t.me/my_host_gta">Поддержка</a>
+    </footer>
 </body>
 </html>
