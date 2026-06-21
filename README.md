@@ -9,7 +9,7 @@
 - **Современный интерфейс**: Удобный Popup для мониторинга статуса всех ваших серверов.
 
 ## Установка
-1. Скачайте архив `HostGtaFree.zip` из [релизов](https://github.com/YOUR_USER/HostGtaFree/releases).
+1. Скачайте архив `HostGtaFree.zip` из [релизов](https://github.com/OinkTechLtd/HostGtaFree/releases).
 2. Распакуйте архив.
 3. Откройте браузер и перейдите в `chrome://extensions/`.
 4. Включите **Режим разработчика** (Developer mode).
