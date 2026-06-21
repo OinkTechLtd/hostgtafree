@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Обратная связь | HostGTAFree</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0b0e1a 0%, #1a1f2f 100%);
@@ -24,8 +28,13 @@
             padding: 40px 35px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(255, 80, 80, 0.2);
+            width: 100%;
         }
-        .icon-big { font-size: 3.5rem; text-align: center; margin-bottom: 5px; }
+        .icon-big {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
         h2 {
             text-align: center;
             font-size: 2rem;
@@ -46,22 +55,30 @@
             margin-bottom: 6px;
             color: #ddd;
         }
-        select, textarea, input[type="text"], input[type="email"] {
+        select,
+        textarea,
+        input[type="text"],
+        input[type="email"] {
             width: 100%;
             padding: 12px 16px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
             color: #fff;
             font-size: 1rem;
             outline: none;
             transition: 0.3s;
         }
-        select:focus, textarea:focus, input:focus {
+        select:focus,
+        textarea:focus,
+        input:focus {
             border-color: #f7d94e;
             box-shadow: 0 0 0 3px rgba(247, 217, 78, 0.2);
         }
-        textarea { resize: vertical; min-height: 90px; }
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
         .star-rating {
             display: flex;
             flex-direction: row-reverse;
@@ -131,13 +148,18 @@
             box-shadow: 0 12px 28px rgba(255, 80, 80, 0.5);
         }
         .btn-secondary {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
         }
         .success-msg {
             display: none;
@@ -149,7 +171,22 @@
             color: #2ed573;
             text-align: center;
         }
-        .success-msg.show { display: block; }
+        .success-msg.show {
+            display: block;
+        }
+        .error-msg {
+            display: none;
+            background: rgba(255, 80, 80, 0.15);
+            border: 1px solid #ff6b6b;
+            border-radius: 16px;
+            padding: 15px;
+            margin-top: 15px;
+            color: #ff6b6b;
+            text-align: center;
+        }
+        .error-msg.show {
+            display: block;
+        }
         .info-note {
             margin-top: 20px;
             font-size: 0.9rem;
@@ -157,8 +194,12 @@
             text-align: center;
         }
         @media (max-width: 600px) {
-            .container { padding: 25px 20px; }
-            h2 { font-size: 1.6rem; }
+            .container {
+                padding: 25px 20px;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -168,67 +209,171 @@
         <h2>Подтверждение удаления</h2>
         <div class="sub">Нам жаль, что вы уходите. Помогите нам стать лучше!</div>
 
-        <form id="feedbackForm" action="send_feedback.php" method="POST">
-            <!-- Рейтинг звёздами -->
+        <!-- Форма -->
+        <form id="feedbackForm" novalidate>
+            <!-- Рейтинг -->
             <div class="form-group">
-                <label>Оцените ваш опыт (1 – ужасно, 5 – отлично)</label>
+                <label>Оцените ваш опыт (1 – ужасно, 5 – отлично) <span style="color:#ff6b6b;">*</span></label>
                 <div class="star-rating">
-                    <input type="radio" name="rating" id="star5" value="5" required>
+                    <input type="radio" name="rating" id="star5" value="5" required />
                     <label for="star5" title="5 звёзд">★</label>
-                    <input type="radio" name="rating" id="star4" value="4">
+                    <input type="radio" name="rating" id="star4" value="4" />
                     <label for="star4" title="4 звезды">★</label>
-                    <input type="radio" name="rating" id="star3" value="3">
+                    <input type="radio" name="rating" id="star3" value="3" />
                     <label for="star3" title="3 звезды">★</label>
-                    <input type="radio" name="rating" id="star2" value="2">
+                    <input type="radio" name="rating" id="star2" value="2" />
                     <label for="star2" title="2 звезды">★</label>
-                    <input type="radio" name="rating" id="star1" value="1">
+                    <input type="radio" name="rating" id="star1" value="1" />
                     <label for="star1" title="1 звезда">★</label>
                 </div>
+                <small style="color:#888;">Выберите оценку</small>
             </div>
 
-            <!-- Причины удаления (множественный выбор) -->
+            <!-- Причины -->
             <div class="form-group">
-                <label>Что именно не устроило? (выберите несколько)</label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="reasons[]" value="Сложно в настройке"> Сложно в настройке</label>
-                    <label><input type="checkbox" name="reasons[]" value="Высокая цена"> Высокая цена</label>
-                    <label><input type="checkbox" name="reasons[]" value="Не хватает функций"> Не хватает функций</label>
-                    <label><input type="checkbox" name="reasons[]" value="Низкая производительность"> Низкая производительность</label>
-                    <label><input type="checkbox" name="reasons[]" value="Плохая поддержка"> Плохая поддержка</label>
-                    <label><input type="checkbox" name="reasons[]" value="Нашёл альтернативу"> Нашёл альтернативу</label>
-                    <label><input type="checkbox" name="reasons[]" value="Не подходит интерфейс"> Не подходит интерфейс</label>
-                    <label><input type="checkbox" name="reasons[]" value="Другое"> Другое</label>
+                <label>Что именно не устроило? (выберите несколько) <span style="color:#ff6b6b;">*</span></label>
+                <div class="checkbox-group" id="reasonGroup">
+                    <label><input type="checkbox" name="reasons" value="Сложно в настройке" /> Сложно в настройке</label>
+                    <label><input type="checkbox" name="reasons" value="Высокая цена" /> Высокая цена</label>
+                    <label><input type="checkbox" name="reasons" value="Не хватает функций" /> Не хватает функций</label>
+                    <label><input type="checkbox" name="reasons" value="Низкая производительность" /> Низкая производительность</label>
+                    <label><input type="checkbox" name="reasons" value="Плохая поддержка" /> Плохая поддержка</label>
+                    <label><input type="checkbox" name="reasons" value="Нашёл альтернативу" /> Нашёл альтернативу</label>
+                    <label><input type="checkbox" name="reasons" value="Не подходит интерфейс" /> Не подходит интерфейс</label>
+                    <label><input type="checkbox" name="reasons" value="Другое" /> Другое</label>
                 </div>
+                <small style="color:#888;">Выберите хотя бы один пункт</small>
             </div>
 
             <!-- Комментарий -->
             <div class="form-group">
-                <label for="comment">Ваш комментарий (подробнее о проблеме)</label>
+                <label for="comment">Ваш комментарий</label>
                 <textarea id="comment" name="comment" placeholder="Расскажите, что нам стоит улучшить..."></textarea>
             </div>
 
-            <!-- Email (опционально) -->
+            <!-- Email -->
             <div class="form-group">
                 <label for="email">Ваш email (для ответа, необязательно)</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com">
+                <input type="email" id="email" name="email" placeholder="your@email.com" />
             </div>
 
+            <!-- Кнопки -->
             <div class="btn-group">
-                <button type="submit" class="btn btn-danger">Отправить и удалить</button>
+                <button type="submit" class="btn btn-danger" id="submitBtn">Отправить и удалить</button>
                 <a href="welcome.html" class="btn btn-secondary">Отмена</a>
             </div>
         </form>
 
+        <!-- Сообщения -->
         <div class="success-msg" id="successMsg">
-            ✅ Спасибо за ваш отзыв! Мы учтём ваши пожелания.<br>
+            ✅ Спасибо за ваш отзыв! Мы учтём ваши пожелания.<br />
             <small>Ваш аккаунт / сервер будет удалён в течение 24 часов.</small>
         </div>
-
+        <div class="error-msg" id="errorMsg">
+            ❌ Произошла ошибка при отправке. Попробуйте ещё раз или напишите нам напрямую на почту.
+        </div>
         <div class="info-note">
             ⚠️ Это действие необратимо. Все данные будут удалены.
         </div>
     </div>
 
-    <!-- Если хотите отправлять без перезагрузки – используйте JS, но для простоты оставим обычную отправку -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ЭТО ВАША ПОЧТА – сюда будут приходить письма
+            const TO_EMAIL = 'fillshowyt@gmail.com';
+
+            const form = document.getElementById('feedbackForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+
+            // Вспомогательные функции
+            function getSelectedRating() {
+                const inputs = document.querySelectorAll('input[name="rating"]');
+                for (let inp of inputs) {
+                    if (inp.checked) return inp.value;
+                }
+                return null;
+            }
+
+            function getSelectedReasons() {
+                const checkboxes = document.querySelectorAll('input[name="reasons"]');
+                const selected = [];
+                checkboxes.forEach(cb => {
+                    if (cb.checked) selected.push(cb.value);
+                });
+                return selected;
+            }
+
+            function validateForm() {
+                if (!getSelectedRating()) {
+                    alert('Пожалуйста, выберите оценку (от 1 до 5 звёзд).');
+                    return false;
+                }
+                if (getSelectedReasons().length === 0) {
+                    alert('Пожалуйста, выберите хотя бы одну причину удаления.');
+                    return false;
+                }
+                return true;
+            }
+
+            // Отправка через FormSubmit (без регистрации)
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (!validateForm()) return;
+
+                const rating = getSelectedRating();
+                const reasons = getSelectedReasons().join(', ');
+                const comment = document.getElementById('comment').value.trim() || 'Не оставлен';
+                const email = document.getElementById('email').value.trim() || 'Не указан';
+
+                // Формируем данные для отправки
+                const formData = new FormData();
+                formData.append('rating', rating);
+                formData.append('reasons', reasons);
+                formData.append('comment', comment);
+                formData.append('email', email);
+                formData.append('_subject', '[HOSTGTAFREE] Отзыв об удалении');
+                // Дополнительно: можно скрыть поле "отправить копию себе"
+                // formData.append('_captcha', 'false'); // если хотите отключить капчу (по умолчанию включена)
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+
+                // Отправляем на FormSubmit
+                fetch(`https://formsubmit.co/ajax/${TO_EMAIL}`, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error('Ошибка сети');
+                        }
+                    })
+                    .then(data => {
+                        successMsg.classList.add('show');
+                        form.style.display = 'none';
+                        errorMsg.classList.remove('show');
+                    })
+                    .catch(error => {
+                        errorMsg.classList.add('show');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Отправить и удалить';
+                        console.error('Ошибка:', error);
+                    });
+            });
+
+            // Сбрасываем сообщение об ошибке при изменении формы
+            form.addEventListener('change', function() {
+                errorMsg.classList.remove('show');
+            });
+
+        })();
+    </script>
 </body>
 </html>
