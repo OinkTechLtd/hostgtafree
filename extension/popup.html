@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 350px;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: white;
+        }
+        .header {
+            background: #16213e;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #0f3460;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: #e94560;
+        }
+        .content {
+            padding: 15px;
+        }
+        .server-card {
+            background: #0f3460;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #50C878;
+        }
+        .server-id {
+            font-size: 12px;
+            color: #999;
+        }
+        .server-days {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .status-active {
+            color: #50C878;
+            font-size: 12px;
+        }
+        .btn {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            color: #555;
+            padding: 10px;
+        }
+        .no-auth {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">HostGta Free</div>
+        <div id="auth-status">●</div>
+    </div>
+    <div class="content" id="app">
+        <div class="no-auth">Загрузка данных...</div>
+    </div>
+    <div class="footer">
+        Автоматическое продление активно
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
