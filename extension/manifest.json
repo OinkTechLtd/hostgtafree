@@ -7,7 +7,8 @@
     "alarms",
     "notifications",
     "storage",
-    "cookies"
+    "cookies",
+    "webRequest"
   ],
   "host_permissions": [
     "https://hostgta.ru/*",
@@ -16,6 +17,12 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://hostgta.ru/web*", "https://hostgta.com/web*"],
+      "js": ["content.js"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
